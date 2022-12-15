@@ -11,9 +11,9 @@ import { Socket } from 'ngx-socket-io';
 export class AppComponent {
   constructor(private http: HttpClient, private socket: Socket) {}
   public ngOnInit(): void {
-    this.http
-      .get('http://localhost:3000/')
-      .subscribe((data) => console.log(data));
+    this.socket.on('message', () => {
+      console.log('hello');
+    });
   }
 
   public createRoom(): void {}
