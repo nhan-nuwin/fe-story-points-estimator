@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Socket } from 'ngx-socket-io';
 @Injectable()
 @Component({
   selector: 'app-root',
@@ -9,10 +9,12 @@ import { Observable, throwError } from 'rxjs';
   styleUrls: ['./app.component.less'],
 })
 export class AppComponent {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private socket: Socket) {}
   public ngOnInit(): void {
     this.http
       .get('http://localhost:3000/')
       .subscribe((data) => console.log(data));
   }
+
+  public createRoom(): void {}
 }
