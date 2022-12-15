@@ -16,5 +16,7 @@ export class AppComponent {
     });
   }
 
-  public createRoom(): void {}
+  public createRoom(): void {
+    this.socket.emit('create-room');
+  }
 }
