@@ -14,6 +14,10 @@ export class AppComponent {
     this.socket.on('message', () => {
       console.log('hello');
     });
+
+    this.socket.on('create-room-emit', (roomId: any) => {
+      console.log(roomId + ' created');
+    });
   }
 
   public createRoom(): void {
