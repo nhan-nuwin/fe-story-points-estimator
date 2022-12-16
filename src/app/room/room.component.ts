@@ -9,13 +9,21 @@ import { Socket } from 'ngx-socket-io';
 })
 export class RoomComponent implements OnInit {
   public roomId = '';
+  public name = '';
 
   constructor(private route: ActivatedRoute, private socket: Socket) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((map) => {
-      this.socket.emit('get-room-data', map.get('roomId'));
-      this.socket.on('get-room-data-server', (data: any) => console.log(data));
+      const roomId = map.get('roomId');
+
+      this.roomId = roomId || '';
     });
+
+    this.socket.on('get-name-server', (name: string) => (this.name = name));
+  }
+
+  getName(): void {
+    this.socket.emit('get-name-client');
   }
 }
