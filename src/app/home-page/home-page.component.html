@@ -1,0 +1,20 @@
+<div class="container">
+  <h1>Story Points Estimator</h1>
+  <div class="input-name-container">
+    <p class="control has-icons-left">
+      <input
+        class="input"
+        type="text"
+        placeholder="Enter name"
+        [(ngModel)]="name"
+      />
+      <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
+    </p>
+
+    <button class="button is-warning" (click)="createRoom()">
+      Create a room
+    </button>
+  </div>
+</div>
