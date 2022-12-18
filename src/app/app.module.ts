@@ -8,11 +8,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RoomComponent } from './room/room.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { CardsComponent } from './cards/cards.component';
+import { PlayersComponent } from './players/players.component';
+
+import { PokerService } from 'src/services/poker-service';
+import { JoinRoomComponent } from './join-room/join-room.component';
 
 const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
 
 @NgModule({
-  declarations: [AppComponent, RoomComponent, HomePageComponent],
+  declarations: [
+    AppComponent,
+    RoomComponent,
+    HomePageComponent,
+    CardsComponent,
+    PlayersComponent,
+    JoinRoomComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -20,7 +32,7 @@ const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
     SocketIoModule.forRoot(config),
     FormsModule,
   ],
-  providers: [],
+  providers: [PokerService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

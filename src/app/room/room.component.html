@@ -1,4 +1,33 @@
 <div class="container content">
-  <h1>Room ID: {{ roomId }}</h1>
-  <h2>Name: {{ name }}</h2>
+  <div class="room-container">
+    <div class="row-1 mt-3 mx-3">
+      <h3 class="is-flex is-align-items-center room-id-text">
+        Room ID: {{ roomId }}
+      </h3>
+
+      <div class="is-flex is-align-items-center">
+        <button
+          class="button is-rounded is-outlined button-copy-link"
+          (click)="copyMessage()"
+        >
+          Copy Invite Link
+        </button>
+      </div>
+    </div>
+
+    <div class="players-container">
+      <app-players [users]="users" [state]="state"></app-players>
+    </div>
+
+    <div class="is-flex is-justify-content-center">
+      <button class="button is-outlined mr-3 room-button" (click)="reset()">
+        Reset
+      </button>
+      <button class="button room-button" (click)="displayCards()">
+        Display Cards
+      </button>
+    </div>
+
+    <app-cards [roomId]="roomId"></app-cards>
+  </div>
 </div>

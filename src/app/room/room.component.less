@@ -1,0 +1,32 @@
+.room-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+
+  .room-id-text {
+    font-family: "Chivo Mono", monospace;
+  }
+
+  .row-1 {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .players-container {
+    flex-grow: 1;
+
+    display: flex;
+    align-items: center;
+  }
+
+  .button-copy-link {
+    border: 2px solid black;
+  }
+
+  .room-button {
+    border: 2px solid black;
+    box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+      0 2px 2px hsl(0deg 0% 0% / 0.075);
+    height: 60px;
+  }
+}
