@@ -14,6 +14,7 @@ export class RoomComponent implements OnInit {
   public roomId = '';
   public name = '';
   public users: User[] = [];
+  public linkUrl = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -24,12 +25,11 @@ export class RoomComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap.subscribe((map) => {
       const roomId = map.get('roomId');
-      this.roomId = roomId || '';
-    });
 
-    this.socket.emit('get-name-client');
-    this.socket.on('get-name-server', (user: any) => {
-      this.name = user.name;
+      if (roomId) {
+        this.roomId = roomId || '';
+        this.linkUrl = `http://localhost:4200/joinroom/${this.roomId}`;
+      }
     });
 
     this.socket.on('update-client', (rooms: any) => {
@@ -45,5 +45,19 @@ export class RoomComponent implements OnInit {
 
   displayCards(): void {
     this.poker.showCards(this.roomId);
+  }
+
+  copyMessage() {
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = this.linkUrl;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
   }
 }
