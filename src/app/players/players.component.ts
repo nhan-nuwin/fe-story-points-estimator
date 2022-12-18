@@ -6,10 +6,14 @@ import { User } from '../types';
   templateUrl: './players.component.html',
   styleUrls: ['./players.component.less'],
 })
-export class PlayersComponent implements OnInit {
+export class PlayersComponent {
   @Input() users: User[] = [];
   @Input() state = 'hideCards';
+
+  public players: User[] = [];
   constructor() {}
 
-  ngOnInit(): void {}
+  trackById(index: number, el: any): number {
+    return el.id;
+  }
 }

@@ -1,6 +1,13 @@
 .poker-cards-container {
   display: flex;
   margin: 2rem 0;
+  flex-direction: column;
+  align-items: center;
+
+  .poker-cards-header {
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
 
   .poker-card {
     display: flex;
@@ -8,10 +15,11 @@
     align-items: center;
 
     background: white;
-    border: 1px solid #2596be;
+    border: 1px solid #ffc32c;
     border-radius: 4px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 16px 0px;
-    color: #2596be;
+    color: black;
+    font-family: "Chivo Mono", monospace;
     margin-right: 12px;
     cursor: pointer;
 

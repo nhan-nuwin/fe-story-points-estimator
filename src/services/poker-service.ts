@@ -17,6 +17,7 @@ export class PokerService {
   }
 
   resetRoom(roomId: string) {
+    this.hideCards(roomId);
     this.socket.emit('reset-room', roomId);
   }
 

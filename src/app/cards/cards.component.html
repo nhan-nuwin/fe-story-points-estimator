@@ -1,8 +1,12 @@
 <div>
-  <p>Choose your card</p>
   <div class="poker-cards-container">
-    <div *ngFor="let card of fib" class="poker-card" (click)="vote(card)">
-      {{ card }}
+    <div class="poker-cards-header">
+      <p>Choose your card</p>
+    </div>
+    <div class="is-flex">
+      <div *ngFor="let card of fib" class="poker-card" (click)="vote(card)">
+        {{ card }}
+      </div>
     </div>
   </div>
 </div>

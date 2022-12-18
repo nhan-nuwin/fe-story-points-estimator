@@ -1,6 +1,6 @@
 <div>
   <div class="players-container">
-    <div *ngFor="let user of users">
+    <div *ngFor="let user of users; trackBy: trackById">
       <div class="player-card-container">
         <!-- Not voted, show gray card -->
         <ng-container *ngIf="!user.vote">
