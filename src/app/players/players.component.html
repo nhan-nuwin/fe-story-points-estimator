@@ -1,0 +1,26 @@
+<div>
+  <div class="players-container">
+    <div *ngFor="let user of users">
+      <div class="player-card-container">
+        <!-- Not voted, show gray card -->
+        <ng-container *ngIf="!user.vote">
+          <div class="player-card not-voted"></div>
+        </ng-container>
+
+        <!-- voted && hideCards, show blue card -->
+        <ng-container *ngIf="state === 'hideCards' && user.vote">
+          <div class="player-card voted-no-show"></div>
+        </ng-container>
+
+        <!-- voted && showCards, show card content -->
+        <ng-container *ngIf="state === 'showCards' && user.vote">
+          <div class="player-card voted-show">{{ user.vote }}</div>
+        </ng-container>
+
+        <div class="player-name">
+          {{ user.name }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

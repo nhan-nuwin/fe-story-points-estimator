@@ -10,17 +10,21 @@ import { Socket } from 'ngx-socket-io';
 })
 export class HomePageComponent implements OnInit {
   public name = '';
+  public roomId = '';
 
-  constructor(private socket: Socket, private router: Router) {}
-  public ngOnInit(): void {
-    this.socket.on('create-room-emit', (roomId: any) => {
-      this.socket.emit('join-room', { roomId, name: this.name });
-
-      this.router.navigateByUrl(`/room/${roomId}`);
-    });
-  }
+  constructor(
+    private socket: Socket,
+    private router: Router,
+    private http: HttpClient
+  ) {}
+  public ngOnInit(): void {}
 
   public createRoom(): void {
-    this.socket.emit('create-room');
+    this.http.put('http://localhost:3001/room', {}).subscribe((data: any) => {
+      this.roomId = data.roomId;
+      this.socket.emit('create-room', this.roomId);
+      this.socket.emit('join-room', { roomId: this.roomId, name: this.name });
+      this.router.navigateByUrl(`/room/${this.roomId}`);
+    });
   }
 }

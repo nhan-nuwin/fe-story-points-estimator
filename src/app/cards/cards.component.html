@@ -1,0 +1,8 @@
+<div>
+  <p>Choose your card</p>
+  <div class="poker-cards-container">
+    <div *ngFor="let card of fib" class="poker-card" (click)="vote(card)">
+      {{ card }}
+    </div>
+  </div>
+</div>
