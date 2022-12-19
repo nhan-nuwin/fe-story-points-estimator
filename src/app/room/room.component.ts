@@ -28,7 +28,7 @@ export class RoomComponent implements OnInit {
 
       if (roomId) {
         this.roomId = roomId || '';
-        this.linkUrl = `http://${window.location.hostname}:4200/joinroom/${this.roomId}`;
+        this.linkUrl = `http://${window.location.hostname}:${window.location.port}/joinroom/${this.roomId}`;
       }
     });
 
