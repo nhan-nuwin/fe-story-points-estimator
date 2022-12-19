@@ -17,7 +17,9 @@ export class HomePageComponent implements OnInit {
     private router: Router,
     private http: HttpClient
   ) {}
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    console.log(window.location.hostname);
+  }
 
   public createRoom(): void {
     this.http.put('http://localhost:3001/room', {}).subscribe((data: any) => {
