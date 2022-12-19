@@ -22,11 +22,13 @@ export class HomePageComponent implements OnInit {
   }
 
   public createRoom(): void {
-    this.http.put('http://localhost:3001/room', {}).subscribe((data: any) => {
-      this.roomId = data.roomId;
-      this.socket.emit('create-room', this.roomId);
-      this.socket.emit('join-room', { roomId: this.roomId, name: this.name });
-      this.router.navigateByUrl(`/room/${this.roomId}`);
-    });
+    this.http
+      .put('https://monkfish-app-nhagx.ondigitalocean.app/room', {})
+      .subscribe((data: any) => {
+        this.roomId = data.roomId;
+        this.socket.emit('create-room', this.roomId);
+        this.socket.emit('join-room', { roomId: this.roomId, name: this.name });
+        this.router.navigateByUrl(`/room/${this.roomId}`);
+      });
   }
 }

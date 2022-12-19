@@ -14,7 +14,10 @@ import { PlayersComponent } from './players/players.component';
 import { PokerService } from 'src/services/poker-service';
 import { JoinRoomComponent } from './join-room/join-room.component';
 
-const config: SocketIoConfig = { url: 'http://localhost:3001', options: {} };
+const config: SocketIoConfig = {
+  url: 'https://monkfish-app-nhagx.ondigitalocean.app/',
+  options: {},
+};
 
 @NgModule({
   declarations: [
